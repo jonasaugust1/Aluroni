@@ -12,33 +12,33 @@ interface Props {
 
 export default function Filtros({ filtro, setFiltro }: Props) {
 
-    function selecionarFiltro(opcao: IOpcao) {
+  function selecionarFiltro(opcao: IOpcao) {
 
-        if(filtro === opcao.id) {
-            return setFiltro(null)
-        }
-        return setFiltro(opcao.id)
+    if(filtro === opcao.id) {
+      return setFiltro(null);
     }
+    return setFiltro(opcao.id);
+  }
 
-    return (
+  return (
 
-        <div className={styles.filtros}>
+    <div className={styles.filtros}>
 
-            {filtros.map(opcao => (
+      {filtros.map(opcao => (
 
-                <button
-                    key={opcao.id}
-                    className={classNames({
-                        [styles.filtros__filtro]: true,
-                        [styles['filtros__filtro--ativo']]: filtro === opcao.id
-                    })}
-                    onClick={() => selecionarFiltro(opcao)}
-                >
-                    {opcao.label}
-                </button>
-            ))}
+        <button
+          key={opcao.id}
+          className={classNames({
+            [styles.filtros__filtro]: true,
+            [styles['filtros__filtro--ativo']]: filtro === opcao.id
+          })}
+          onClick={() => selecionarFiltro(opcao)}
+        >
+          {opcao.label}
+        </button>
+      ))}
 
-        </div>
-    )
+    </div>
+  );
 
 }
